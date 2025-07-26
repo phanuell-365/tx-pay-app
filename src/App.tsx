@@ -27,6 +27,9 @@ function App() {
         <p>
            This template is designed to be used. It includes Vite for fast development and React for building user interfaces.
         </p>
+        <p>
+          We added a simple counter to demonstrate state management in React. You can click the button to increment the count.
+        </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
     </>
