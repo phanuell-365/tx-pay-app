@@ -260,7 +260,7 @@ import reactDom from 'eslint-plugin-react-dom';
 export default tseslint.config([
   // Global ignores
   {
-    ignores: ['dist/**', 'node_modules/**']
+    ignores: ['dist/**', 'node_modules/**'],
   },
 
   // Base JavaScript configuration for all files
@@ -305,10 +305,7 @@ export default tseslint.config([
   // React-specific configuration
   {
     files: ['**/*.{jsx,tsx}'],
-    extends: [
-      reactX.configs['recommended-typescript'],
-      reactDom.configs.recommended,
-    ],
+    extends: [reactX.configs['recommended-typescript'], reactDom.configs.recommended],
     rules: {
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',

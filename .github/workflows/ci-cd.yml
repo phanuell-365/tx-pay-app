@@ -2,9 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ master, develop ]
+    branches: [master, develop]
   pull_request:
-    branches: [ master, develop ]
+    branches: [master, develop]
 
 jobs:
   # Continuous Integration
@@ -31,6 +31,9 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
+
+      - name: Run Prettier format
+        run: npm run format
 
       - name: Run Prettier check
         run: npm run format:check

@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     ports:
-      - "12000:12000"
+      - '12000:12000'
     volumes:
       - .:/app
       - /app/node_modules
