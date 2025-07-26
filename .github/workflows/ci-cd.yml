@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18, 20]
+        node-version: [18, 20, 22]
 
     steps:
       - name: Checkout code
@@ -25,6 +25,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+
+      # For GitHub Actions
+      - name: Clear cache
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
+          rm -rf .vite
+      - name: Install dependencies
+        run: npm install
 
       - name: Install dependencies
         run: npm ci
