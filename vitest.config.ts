@@ -3,7 +3,7 @@
 
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
-import path from 'path'
+import * as path from 'path'
 // import path from 'node:path';
 
 // https://vite.dev/config/
@@ -24,6 +24,7 @@ export default defineConfig({
       exclude: [
         'node_modules/',
         'src/test/',
+        'dist/',
         '**/*.d.ts',
         '**/*.config.*',
       ],
