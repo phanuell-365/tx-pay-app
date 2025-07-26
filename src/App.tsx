@@ -30,6 +30,9 @@ function App() {
         <p>
           We added a simple counter to demonstrate state management in React. You can click the button to increment the count.
         </p>
+        <p>
+          Vercel is still uploading the app, so you might not see the latest changes immediately.
+        </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
     </>
