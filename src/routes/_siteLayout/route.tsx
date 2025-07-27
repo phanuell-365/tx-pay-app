@@ -118,220 +118,222 @@ function RouteComponent() {
       </header>
       {/* ========== END HEADER ========== */}
 
-      <main>
-        hello from _siteLayout
+      <main className="flex min-h-screen flex-col items-center justify-between bg-base-100 py-8">
         <Outlet /> {/* Where child routes render */}
       </main>
 
       {/* ========== FOOTER ========== */}
-      <footer className="mx-auto mt-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8">
-        {/* Grid */}
-        <div className="mb-10 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
-          <div className="col-span-full hidden grid-cols-1 gap-4 lg:col-span-1 lg:grid">
-            <div className="">
-              <a
-                className="focus:outline-hidden flex-none font-manrope-semi-bold text-xl text-primary focus:opacity-80"
-                href="#"
-                aria-label="Brand"
-              >
-                Trade X
-              </a>
-              <p className="mt-3 text-xs text-gray-600 sm:text-sm">
-                The most advanced trading platform for synthetic assets, crypto, and forex trading.
-              </p>
+      <footer className="bg-base-300 ">
+        <div className={`mx-auto mt-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8`}>
+          {/* Grid */}
+          <div className="mb-10 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
+            <div className="col-span-full hidden grid-cols-1 gap-4 lg:col-span-1 lg:grid">
+              <div className="">
+                <a
+                  className="focus:outline-hidden flex-none font-manrope-semi-bold text-xl text-primary focus:opacity-80"
+                  href="#"
+                  aria-label="Brand"
+                >
+                  Trade X
+                </a>
+                <p className="mt-3 text-xs text-gray-600 sm:text-sm">
+                  The most advanced trading platform for synthetic assets, crypto, and forex
+                  trading.
+                </p>
+              </div>
+              <div className="grid grid-cols-3 gap-3">
+                <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
+                  <FontAwesomeIcon icon="cc-visa" className="text-gray-500" />
+                </div>
+                <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
+                  <FontAwesomeIcon icon="cc-mastercard" className="text-gray-500" />
+                </div>
+                <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
+                  <FontAwesomeIcon icon="bitcoin" className="text-gray-500" />
+                </div>
+                <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
+                  <FontAwesomeIcon icon="university" className="text-gray-500" />
+                </div>
+              </div>
             </div>
-            <div className="grid grid-cols-3 gap-3">
-              <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                <FontAwesomeIcon icon="cc-visa" className="text-gray-500" />
-              </div>
-              <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                <FontAwesomeIcon icon="cc-mastercard" className="text-gray-500" />
-              </div>
-              <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                <FontAwesomeIcon icon="bitcoin" className="text-gray-500" />
-              </div>
-              <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                <FontAwesomeIcon icon="university" className="text-gray-500" />
-              </div>
-            </div>
+
+            {footerItems.map((column) => (
+              <FooterColumn key={column.title} title={column.title} items={column.items} />
+            ))}
+
+            {/*<div>*/}
+            {/*  <h4 className="text-base font-manrope-semi-bold text-base-content">Platform</h4>*/}
+
+            {/*  <div className="mt-3 grid space-y-3 text-sm">*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Pricing*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Changelog*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Docs*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Download*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
+            {/* End Col */}
+
+            {/*<div>*/}
+            {/*  <h4 className="text-xs font-semibold uppercase text-gray-900">Company</h4>*/}
+
+            {/*  <div className="mt-3 grid space-y-3 text-sm">*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        About us*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Blog*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Careers*/}
+            {/*      </a>{' '}*/}
+            {/*      <span className="inline text-blue-600">— We're hiring</span>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Customers*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Newsroom*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Sitemap*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
+            {/*/!* End Col *!/*/}
+
+            {/*<div>*/}
+            {/*  <h4 className="text-sm font-manrope-semi-bold text-base-content">Legal</h4>*/}
+
+            {/*  <div className="mt-3 grid space-y-3 text-sm">*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Community*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Help & Support*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        eBook*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        What's New*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*    <p>*/}
+            {/*      <a*/}
+            {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
+            {/*        href="#"*/}
+            {/*      >*/}
+            {/*        Status*/}
+            {/*      </a>*/}
+            {/*    </p>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
+            {/*/!* End Col *!/*/}
           </div>
+          {/* End Grid */}
 
-          {footerItems.map((column) => (
-            <FooterColumn key={column.title} title={column.title} items={column.items} />
-          ))}
+          <div className="mt-5 border-t border-gray-200 pt-5">
+            <h5 className="text-md font-manrope-bold">Risk Warning</h5>
 
-          {/*<div>*/}
-          {/*  <h4 className="text-base font-manrope-semi-bold text-base-content">Platform</h4>*/}
-
-          {/*  <div className="mt-3 grid space-y-3 text-sm">*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Pricing*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Changelog*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Docs*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Download*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
-          {/* End Col */}
-
-          {/*<div>*/}
-          {/*  <h4 className="text-xs font-semibold uppercase text-gray-900">Company</h4>*/}
-
-          {/*  <div className="mt-3 grid space-y-3 text-sm">*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        About us*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Blog*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Careers*/}
-          {/*      </a>{' '}*/}
-          {/*      <span className="inline text-blue-600">— We're hiring</span>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Customers*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Newsroom*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Sitemap*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
-          {/*/!* End Col *!/*/}
-
-          {/*<div>*/}
-          {/*  <h4 className="text-sm font-manrope-semi-bold text-base-content">Legal</h4>*/}
-
-          {/*  <div className="mt-3 grid space-y-3 text-sm">*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Community*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Help & Support*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        eBook*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        What's New*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*    <p>*/}
-          {/*      <a*/}
-          {/*        className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-gray-800 focus:text-gray-800"*/}
-          {/*        href="#"*/}
-          {/*      >*/}
-          {/*        Status*/}
-          {/*      </a>*/}
-          {/*    </p>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
-          {/*/!* End Col *!/*/}
-        </div>
-        {/* End Grid */}
-
-        <div className="mt-5 border-t border-gray-200 pt-5">
-          <h5 className="text-md font-manrope-bold">Risk Warning</h5>
-
-          <p className="mt-2 text-wrap break-words text-sm leading-6 text-gray-600 antialiased grid grid-cols-1 gap-3">
-            <span>
-              The Financial Products offered by the company include Contracts for Difference
-              ('CFDs') and other complex financial products. Trading CFDs carries a high level of
-              risk, since leverage can work both to your advantage and disadvantage. As a result,
-              CFDs may not be suitable for all investors because it is possible to lose all of your
-              invested capital.{' '}
-            </span>
-            <span>
-              You should never invest money that you cannot afford to lose. Before trading in the
-              complex financial products offered, please ensure to understand the risks involved.
-              You are granted limited non-exclusive non-transferable rights to use the IP provided
-              on this website for personal and non-commercial purposes in relation to the services
-              offered on the Website only.
-            </span>
-            <span>
-              The information on this website is not directed at residents of certain jurisdictions,
-              including, without limitation, EU/EEA member states, and is not intended for
-              distribution to any person in any country or jurisdiction where such distribution or
-              use would be contrary to local law or regulation.
-            </span>
-          </p>
+            <p className="mt-2 grid grid-cols-1 gap-3 text-wrap break-words text-sm leading-6 text-gray-600 antialiased">
+              <span>
+                The Financial Products offered by the company include Contracts for Difference
+                ('CFDs') and other complex financial products. Trading CFDs carries a high level of
+                risk, since leverage can work both to your advantage and disadvantage. As a result,
+                CFDs may not be suitable for all investors because it is possible to lose all of
+                your invested capital.{' '}
+              </span>
+              <span>
+                You should never invest money that you cannot afford to lose. Before trading in the
+                complex financial products offered, please ensure to understand the risks involved.
+                You are granted limited non-exclusive non-transferable rights to use the IP provided
+                on this website for personal and non-commercial purposes in relation to the services
+                offered on the Website only.
+              </span>
+              <span>
+                The information on this website is not directed at residents of certain
+                jurisdictions, including, without limitation, EU/EEA member states, and is not
+                intended for distribution to any person in any country or jurisdiction where such
+                distribution or use would be contrary to local law or regulation.
+              </span>
+            </p>
+          </div>
         </div>
       </footer>
     </div>

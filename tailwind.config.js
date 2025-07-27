@@ -136,6 +136,17 @@ export default {
             transform: 'scale(1)',
           },
         },
+        floating: {
+          '0%': {
+            transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(0px)',
+          },
+          '50%': {
+            transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(-10px)',
+          },
+          '100%': {
+            transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(0px)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -146,6 +157,7 @@ export default {
         shutter: 'shutter 0.5s ease-in-out',
         capture: 'capture 0.15s ease-in-out',
         'scale-up-center': 'scale-up-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both',
+        floating: 'floating 6s ease-in-out infinite',
       },
       transitionDuration: {
         0: '0ms',
@@ -190,7 +202,7 @@ export default {
           success: '#76dfae',
           warning: '#d4f7e3',
           error: '#edfcf4',
-        }
+        },
       },
     ],
     darkMode: 'class',
@@ -199,9 +211,8 @@ export default {
     base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components
     utils: true, // adds responsive and modifier utility classes
-    prefix: "", // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
+    prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
-    themeRoot: ":root", // The element that receives theme color CSS variables
-
+    themeRoot: ':root', // The element that receives theme color CSS variables
   },
 };
