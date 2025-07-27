@@ -10,8 +10,8 @@ services:
       - '12000:12000'
     volumes:
       - .:/app
-#      - /app/node_modules
-      - node_modules:/app/node_modules
+      - /app/node_modules
+#      - node_modules:/app/node_modules
     environment:
       - NODE_ENV=development
     command: sh -c "npm run dev"
@@ -20,5 +20,5 @@ services:
     env_file:
       - .env.local
       - .env
-volumes:
-  node_modules:
+#volumes:
+#  node_modules:
