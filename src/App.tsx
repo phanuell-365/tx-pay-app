@@ -1,42 +1,24 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from './assets/vite.svg';
 import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0);
+import { RouterProvider } from 'react-router-dom'
+import router from '@/app/routes.tsx';
+import { Suspense } from 'react'; // Optional toast notifications
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)} type="button">
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-        <p>
-           This template is designed to be used. It includes Vite for fast development and React for building user interfaces.
-        </p>
-        <p>
-          We added a simple counter to demonstrate state management in React. You can click the button to increment the count.
-        </p>
-        <p>
-          Vercel is still uploading the app, so you might not see the latest changes immediately.
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
-  );
+const Fallback = () => {
+  return <div>Loading...</div>
 }
 
-export default App;
+function App() {
+  return (
+    <>
+      <Suspense fallback={<Fallback />}>
+        <div className="app">
+          <RouterProvider router={router} />
+        </div>
+      </Suspense>
+    </>
+  )
+}
+
+export default App
+
