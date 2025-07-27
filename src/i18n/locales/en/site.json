@@ -1,0 +1,12 @@
+{
+  "logo": "Trade X",
+  "title": "Trade X",
+  "menus": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "contact": "Contact Us",
+    "login": "Login",
+    "register": "Register"
+  }
+}

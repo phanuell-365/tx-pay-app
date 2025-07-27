@@ -1,4 +1,5 @@
 import enCommon from './locales/en/common.json';
+import enSite from './locales/en/site.json';
 import esCommon from './locales/es/common.json';
 // Add more namespaces as needed
 
@@ -6,6 +7,7 @@ import esCommon from './locales/es/common.json';
 const resources = {
     en: {
         common: enCommon,
+        site: enSite,
     },
     es: {
         common: esCommon,
