@@ -4,7 +4,9 @@ import daisyui from 'daisyui';
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  safelist: ['bg-red-500 rounded-lg'], // Force include this class
+  darkMode: 'class', // Move this to the root level
   theme: {
     extend: {
       container: {
@@ -15,11 +17,11 @@ export default {
         },
       },
       colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        // border: 'hsl(var(--border))',
+        // input: 'hsl(var(--input))',
+        // ring: 'hsl(var(--ring))',
+        // background: 'hsl(var(--background))',
+        // foreground: 'hsl(var(--foreground))',
         // primary: {
         //   DEFAULT: 'hsl(var(--primary))',
         //   foreground: 'hsl(var(--primary-foreground))'
@@ -28,26 +30,26 @@ export default {
         //   DEFAULT: 'hsl(var(--secondary))',
         //   foreground: 'hsl(var(--secondary-foreground))'
         // },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
+        // destructive: {
+        //   DEFAULT: 'hsl(var(--destructive))',
+        //   foreground: 'hsl(var(--destructive-foreground))',
+        // },
+        // muted: {
+        //   DEFAULT: 'hsl(var(--muted))',
+        //   foreground: 'hsl(var(--muted-foreground))',
+        // },
         // accent: {
         //   DEFAULT: 'hsl(var(--accent))',
         //   foreground: 'hsl(var(--accent-foreground))'
         // },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
+        // popover: {
+        //   DEFAULT: 'hsl(var(--popover))',
+        //   foreground: 'hsl(var(--popover-foreground))',
+        // },
+        // card: {
+        //   DEFAULT: 'hsl(var(--card))',
+        //   foreground: 'hsl(var(--card-foreground))',
+        // },
         'green-haze': {
           50: '#edfcf4',
           100: '#d4f7e3',
@@ -64,22 +66,22 @@ export default {
       },
       fontFamily: {
         manrope: ['Manrope Regular', 'Ubuntu', 'sans-serif'],
-        'manrope-light': ['Manrope Light', 'Ubuntu', 'san-serif', 'serif'],
-        'manrope-medium': ['Manrope Medium', 'Ubuntu', 'san-serif', 'serif'],
-        'manrope-bold': ['Manrope Bold', 'Ubuntu', 'san-serif', 'serif'],
-        'manrope-extra-light': ['Manrope Extralight', 'Ubuntu', 'san-serif', 'serif'],
-        'manrope-extra-bold': ['Manrope Extrabold', 'Ubuntu', 'san-serif', 'serif'],
-        'manrope-semi-bold': ['Manrope Semibold', 'Ubuntu', 'san-serif', 'serif'],
+        'manrope-light': ['Manrope Light', 'Ubuntu', 'sans-serif', 'serif'],
+        'manrope-medium': ['Manrope Medium', 'Ubuntu', 'sans-serif', 'serif'],
+        'manrope-bold': ['Manrope Bold', 'Ubuntu', 'sans-serif', 'serif'],
+        'manrope-extra-light': ['Manrope Extralight', 'Ubuntu', 'sans-serif', 'serif'],
+        'manrope-extra-bold': ['Manrope Extrabold', 'Ubuntu', 'sans-serif', 'serif'],
+        'manrope-semi-bold': ['Manrope Semibold', 'Ubuntu', 'sans-serif', 'serif'],
       },
       fontSize: {
         xxs: '.65rem',
         xxxs: '.55rem',
       },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-      },
+      // borderRadius: {
+      //   lg: 'var(--radius)',
+      //   md: 'calc(var(--radius) - 2px)',
+      //   sm: 'calc(var(--radius) - 4px)',
+      // },
       keyframes: {
         'accordion-down': {
           from: { height: 0 },
@@ -205,14 +207,14 @@ export default {
         },
       },
     ],
-    darkMode: 'class',
+    // darkMode: 'class',
     darkTheme: 'green-haze-dark', // dark theme for daisyUI
-    theme: 'green-haze',
+    // theme: 'green-haze',
     base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components
     utils: true, // adds responsive and modifier utility classes
-    prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
+    // prefix: '', // prefix for daisyUI classnames (components, modifiers and responsive class names. Not colors)
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
-    themeRoot: ':root', // The element that receives theme color CSS variables
+    // themeRoot: ':root', // The element that receives theme color CSS variables
   },
 };

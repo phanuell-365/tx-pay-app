@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MenuItem from '@/components/MegaMenu/MenuItem.tsx';
 import { FooterColumn, type FooterColumnProps } from '@/components/Footer/FooterColumn.tsx';
 import HeaderButton from '@/components/Header/HeaderButton.tsx';
+import { useTheme } from '@/contexts';
 
 export const Route = createFileRoute('/_siteLayout')({
   component: RouteComponent,
@@ -51,33 +52,12 @@ function RouteComponent() {
     },
   ];
 
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <div>
-      {/*<header>*/}
-      {/*  <div className="flex flex-row items-center justify-between bg-base-100 p-4 text-primary">*/}
-      {/*    <h1 className="flex items-center gap-2 font-manrope-bold text-2xl">*/}
-      {/*      <FontAwesomeIcon icon="chart-line" className="text-xl text-primary" />*/}
-      {/*      Trade X*/}
-      {/*    </h1>*/}
-      {/*    <nav>*/}
-      {/*      <ul className="flex space-x-4">*/}
-      {/*        <li>*/}
-      {/*          <Link to="/home" className="text-primary hover:underline">*/}
-      {/*            Home*/}
-      {/*          </Link>*/}
-      {/*        </li>*/}
-      {/*        <li>*/}
-      {/*          <Link to="/about" className="text-primary hover:underline">*/}
-      {/*            About*/}
-      {/*          </Link>*/}
-      {/*        </li>*/}
-      {/*      </ul>*/}
-      {/*    </nav>*/}
-      {/*  </div>*/}
-      {/*</header>*/}
-
       {/* ========== HEADER ========== */}
-      <header className="z-50 flex w-full flex-wrap py-7 lg:flex-nowrap lg:justify-start">
+      <header className="z-50 flex w-full flex-wrap py-3 lg:flex-nowrap lg:justify-start">
         <nav className="relative flex w-full basis-full flex-wrap items-center px-4 md:px-6 lg:grid lg:grid-cols-12 lg:px-8">
           <div className="flex items-center lg:col-span-3">
             {/* Logo */}
@@ -86,7 +66,7 @@ function RouteComponent() {
               className="focus:outline-hidden flex flex-row items-center gap-2 rounded-xl font-manrope-semi-bold text-xl text-primary focus:opacity-80"
               aria-label="Trade X"
             >
-              <FontAwesomeIcon icon="chart-line" className="text-xl" />
+              <FontAwesomeIcon icon={['fas', 'chart-line']} className="text-xl" />
               <h1 className="flex items-center gap-2 font-manrope-bold text-2xl">Trade X</h1>
             </Link>
             {/* End Logo */}
@@ -95,8 +75,31 @@ function RouteComponent() {
           </div>
 
           <div className="ms-auto flex items-center gap-x-1 py-1 lg:order-3 lg:col-span-3 lg:gap-x-2 lg:ps-6">
-            <HeaderButton className="btn-ghost" label={'Login'} />
-            <HeaderButton className="btn-primary" label={'Sign In'} />
+            <HeaderButton
+              className="border border-primary text-primary hover:bg-primary hover:text-green-haze-100 focus:bg-accent focus:text-green-haze-100"
+              label={'Log In'}
+            />
+            <HeaderButton
+              className="border border-primary bg-primary text-base-100 hover:bg-accent focus:bg-accent"
+              label={'Sign In'}
+            />
+            <button
+              className="btn btn-circle btn-sm text-base-content/50 hover:text-primary"
+              type="submit"
+            >
+              <FontAwesomeIcon icon={['fas', 'language']} className="h-4 w-4" />
+            </button>
+            <button
+              className="btn btn-circle btn-sm text-base-content/50 hover:text-primary"
+              onClick={toggleTheme}
+              type="submit"
+            >
+              {theme === 'dark' ? (
+                <FontAwesomeIcon icon={['fas', 'moon']} className="h-4 w-4" />
+              ) : (
+                <FontAwesomeIcon icon={['fas', 'sun']} className="h-4 w-4" />
+              )}
+            </button>
           </div>
 
           <div
@@ -123,7 +126,7 @@ function RouteComponent() {
       </main>
 
       {/* ========== FOOTER ========== */}
-      <footer className="bg-base-300 ">
+      <footer className="bg-base-300">
         <div className={`mx-auto mt-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8`}>
           {/* Grid */}
           <div className="mb-10 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
@@ -143,16 +146,16 @@ function RouteComponent() {
               </div>
               <div className="grid grid-cols-3 gap-3">
                 <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                  <FontAwesomeIcon icon="cc-visa" className="text-gray-500" />
+                  <FontAwesomeIcon icon={['fab', 'cc-visa']} className="text-gray-500" />
                 </div>
                 <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                  <FontAwesomeIcon icon="cc-mastercard" className="text-gray-500" />
+                  <FontAwesomeIcon icon={['fab', 'cc-mastercard']} className="text-gray-500" />
                 </div>
                 <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                  <FontAwesomeIcon icon="bitcoin" className="text-gray-500" />
+                  <FontAwesomeIcon icon={['fab', 'bitcoin']} className="text-gray-500" />
                 </div>
                 <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                  <FontAwesomeIcon icon="university" className="text-gray-500" />
+                  <FontAwesomeIcon icon={['fas', 'university']} className="text-gray-500" />
                 </div>
               </div>
             </div>

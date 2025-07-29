@@ -2,7 +2,7 @@ import React from 'react';
 
 export interface HeaderButtonProps {
   icon?: React.ReactNode;
-  label: string;
+  label?: string;
   onClick?: () => void;
   className?: string;
 }
@@ -11,7 +11,7 @@ export const HeaderButton: React.FC<HeaderButtonProps> = ({ icon, label, onClick
   return (
     <button
       type="button"
-      className={`py-2 px-2.5 inline-flex items-center font-medium text-sm rounded-sm focus:outline-hidden focus: disabled:opacity-50 disabled:pointer-events-none ${className}`}
+      className={`focus:outline-hidden focus: inline-flex active:scale-95 items-center rounded px-3 py-2 font-manrope-semi-bold text-sm transition-colors duration-300 ease-in-out disabled:pointer-events-none disabled:opacity-50 ${icon ? 'gap-x-2' : ''} ${className}`}
       onClick={onClick}
       aria-label={label}
     >

@@ -59,21 +59,14 @@ function RouteComponent() {
                     type="button"
                     aria-label="Google"
                   >
-                    <FontAwesomeIcon icon="google" className="h-5 w-5 text-gray-600" />
+                    <FontAwesomeIcon icon={['fab', 'google']} className="h-5 w-5 text-gray-600" />
                   </button>
                   <button
                     className="focus:outline-hidden flex items-center gap-x-2 rounded-lg p-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100"
                     type="button"
                     aria-label="Apple"
                   >
-                    <FontAwesomeIcon icon="apple" className="h-5 w-5 text-gray-600" />
-                  </button>
-                  <button
-                    className="focus:outline-hidden flex items-center gap-x-2 rounded-lg p-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100"
-                    type="button"
-                    aria-label="Facebook"
-                  >
-                    <FontAwesomeIcon icon="facebook" className="h-5 w-5 text-gray-600" />
+                    <FontAwesomeIcon icon={['fab', 'apple']} className="h-5 w-5 text-gray-600" />
                   </button>
                 </div>
               </div>
@@ -153,6 +146,12 @@ function RouteComponent() {
 
             <div className="mt-10 lg:col-span-4 lg:mt-0">
               <div className="feature-slide-image">
+                <p>P2P Trading</p>
+                <div>
+                  Trade directly with other users using our escrow-based peer-to-peer platform with
+                  multiple payment methods.
+                </div>
+                <a href="">Learn More</a>
                 <DotLottieReact
                   src="https://assets1.lottiefiles.com/packages/lf20_vybwn7df.json"
                   autoplay
@@ -160,6 +159,12 @@ function RouteComponent() {
                 />
               </div>
               <div className="feature-slide-image">
+                <p>Agency Module</p>
+                <div>
+                  Become an agent and facilitate cash deposits and withdrawals for users in your
+                  local area.
+                </div>
+                <a href="">Learn More</a>
                 <img
                   className="w-full rounded-xl shadow-2xl transition-transform ease-in-out hover:scale-105"
                   src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
@@ -167,6 +172,15 @@ function RouteComponent() {
                 />
               </div>
               <div className="feature-slide-image">
+                <p>Affiliate Marketing</p>
+                <div>
+                  Earn commissions by inviting others to join TradeX. Get rewarded for every active
+                  trader you bring to the platform.
+                </div>
+                <a href="">
+                  Earn commissions by inviting others to join TradeX. Get rewarded for every active
+                  trader you bring to the platform.
+                </a>
                 <DotLottieReact
                   src="https://assets1.lottiefiles.com/packages/lf20_5tkzkblw.json"
                   autoplay
@@ -174,6 +188,12 @@ function RouteComponent() {
                 />
               </div>
               <div className="feature-slide-image">
+                <p>Reports Center</p>
+                <div>
+                  Comprehensive financial reporting and trade analysis tools to track your
+                  performance and maintain audit records.
+                </div>
+                <a href="">Learn More</a>
                 <DotLottieReact
                   src="https://assets1.lottiefiles.com/packages/lf20_obhph3sh.json"
                   autoplay
