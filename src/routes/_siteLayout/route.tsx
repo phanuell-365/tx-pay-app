@@ -5,6 +5,7 @@ import MenuItem from '@/components/MegaMenu/MenuItem.tsx';
 import { FooterColumn, type FooterColumnProps } from '@/components/Footer/FooterColumn.tsx';
 import HeaderButton from '@/components/Header/HeaderButton.tsx';
 import { useTheme } from '@/contexts';
+import { PopoverGroup } from '@headlessui/react';
 
 export const Route = createFileRoute('/_siteLayout')({
   component: RouteComponent,
@@ -57,7 +58,7 @@ function RouteComponent() {
   return (
     <div>
       {/* ========== HEADER ========== */}
-      <header className="z-50 flex w-full flex-wrap py-3 lg:flex-nowrap lg:justify-start">
+      <header className="sticky top-0 bg-base-100/80 backdrop-blur-sm z-50 flex w-full flex-wrap py-3 lg:flex-nowrap lg:justify-start">
         <nav className="relative flex w-full basis-full flex-wrap items-center px-4 md:px-6 lg:grid lg:grid-cols-12 lg:px-8">
           <div className="flex items-center lg:col-span-3">
             {/* Logo */}
@@ -76,7 +77,7 @@ function RouteComponent() {
 
           <div className="ms-auto flex items-center gap-x-1 py-1 lg:order-3 lg:col-span-3 lg:gap-x-2 lg:ps-6">
             <HeaderButton
-              className="border border-primary text-primary hover:bg-primary hover:text-green-haze-100 focus:bg-accent focus:text-green-haze-100"
+              className="border border-primary text-primary hover:bg-primary hover:text-base-100 focus:bg-accent focus:text-base-100"
               label={'Log In'}
             />
             <HeaderButton
@@ -107,21 +108,22 @@ function RouteComponent() {
             className="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 lg:order-2 lg:col-span-6 lg:block lg:w-auto lg:basis-auto"
             aria-labelledby="hs-pro-hcail-collapse"
           >
-            <div className="mt-5 flex flex-col gap-x-0 gap-y-4 lg:mt-0 lg:flex-row lg:items-center lg:justify-center lg:gap-x-7 lg:gap-y-0">
-              <MenuItem title={'Home'} />
+            <PopoverGroup>
+              <div className="mt-5 flex flex-col gap-x-0 gap-y-4 lg:mt-0 lg:flex-row lg:items-center lg:justify-center lg:gap-x-7 lg:gap-y-0">
+                <MenuItem title={'Home'} />
 
-              <MenuItem title={'Features'} more={true} />
-              <MenuItem title={'Markets'} />
-              <MenuItem title={'Pricing'} />
-              <MenuItem title={'About'} />
-            </div>
+                <MenuItem title={'Features'} more={true} />
+                <MenuItem title={'Markets'} />
+                <MenuItem title={'Pricing'} />
+                <MenuItem title={'About'} />
+              </div>
+            </PopoverGroup>
           </div>
-          {/* End Collapse */}
         </nav>
       </header>
       {/* ========== END HEADER ========== */}
 
-      <main className="flex min-h-screen flex-col items-center justify-between bg-base-100 py-8">
+      <main className="flex min-h-screen flex-col items-center justify-between bg-base-100 py-8 gap-8">
         <Outlet /> {/* Where child routes render */}
       </main>
 

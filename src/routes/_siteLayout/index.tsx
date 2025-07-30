@@ -2,6 +2,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createFileRoute } from '@tanstack/react-router';
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { HeroButton } from '@/components/Button/HeroButton.tsx';
+
+interface TradeMarket {
+  name: string;
+  className: string;
+}
 
 export const Route = createFileRoute('/_siteLayout/')({
   component: RouteComponent,
@@ -15,14 +21,23 @@ function RouteComponent() {
     { name: 'Top Rated', icon: 'star' },
   ];
 
+  const tradeMarkets: TradeMarket[] = [
+    { name: 'Forex', className: 'border-blue-600' },
+    { name: 'Cryptocurrencies', className: 'border-purple-600' },
+    { name: 'Commodities', className: 'border-yellow-600' },
+    { name: 'Synthetic Assets', className: 'border-green-600' },
+    { name: 'Indices', className: 'border-red-600' },
+    { name: 'Stocks', className: 'border-indigo-600' },
+  ];
+
   return (
     <>
-      <section>
-        <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
+      <section id={`advanced-trading-platform`}>
+        <div className="mx-auto max-w-[85rem] px-4 pb-6 sm:px-6 lg:px-8">
           {/* Grid */}
           <div className="grid lg:grid-cols-7 lg:items-center lg:gap-x-8 xl:gap-x-12">
             <div className="lg:col-span-3">
-              <h1 className="block font-manrope-bold text-2xl text-base-content/70 sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="block font-manrope-bold text-2xl text-base-content sm:text-4xl md:text-5xl lg:text-6xl">
                 Advanced Trading Platform for Modern Traders
               </h1>
 
@@ -84,19 +99,23 @@ function RouteComponent() {
             {/* End Col */}
 
             <div className="mt-10 lg:col-span-4 lg:mt-0">
-              <img
-                className="w-full animate-floating rounded-xl shadow-2xl transition-transform ease-in-out hover:scale-105"
-                src="/imgs/hero-1.jpeg"
-                alt="Hero Image"
-              />
+              <div className={'mx-auto w-full max-w-[500px]'}>
+                <img
+                  className="w-full animate-floating rounded-xl shadow-2xl transition-transform ease-in-out hover:scale-105"
+                  src="/imgs/hero-1.jpeg"
+                  alt="Hero Image"
+                />
+              </div>
             </div>
             {/* End Col */}
           </div>
           {/* End Grid */}
         </div>
       </section>
-      <section className="w-full">
-        <div className="mx-auto flex max-w-[85rem] flex-col items-center gap-x-8 py-12">
+
+      <section className="w-full" id={`awards-section`}>
+        {/* Awards Section */}
+        <div className="mx-auto flex max-w-[85rem] flex-col items-center gap-x-8 py-6 sm:px-6 lg:px-8">
           <div className="flex w-full flex-col items-center gap-y-8">
             <h2 className="mb-6 text-center font-manrope-bold text-2xl text-base-content">
               Our Awards
@@ -106,7 +125,7 @@ function RouteComponent() {
               {awards.map((award) => (
                 <div
                   key={award.name}
-                  className="branch relative flex flex-col items-center justify-center rounded-lg p-4"
+                  className="flex flex-col items-center justify-center rounded-lg p-4"
                 >
                   <FontAwesomeIcon icon={award.icon} className="mb-2 h-8 w-8 text-primary" />
                   <p className="font-manrope-medium text-sm text-base-content">{award.name}</p>
@@ -115,8 +134,65 @@ function RouteComponent() {
             </div>
           </div>
         </div>
-        {/* Awards Section */}
       </section>
+
+      <section id={`trade-multiple-markets`}>
+        {/* Hero */}
+        <div className="mx-auto max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8">
+          {/* Grid */}
+          <div className="grid gap-4 md:grid-cols-2 md:items-center md:gap-8 xl:gap-20">
+            <div>
+              <h1 className="block font-manrope-bold text-3xl text-base-content sm:text-4xl lg:text-6xl lg:leading-tight">
+                Trade Multiple Markets
+              </h1>
+              <p className="mt-3 text-lg text-base-content">
+                Access a wide range of financial markets from a single platform. Trade forex,
+                cryptocurrencies, commodities, and synthetic assets with competitive spreads and
+                lightning-fast execution.
+              </p>
+
+              {/* Buttons */}
+              <div className="mt-7 grid w-full gap-3 sm:inline-flex">
+                {/* Trade Markets */}
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+                  {tradeMarkets.map((market) => (
+                    <p
+                      key={market.name}
+                      className={`focus:outline-hidden inline-flex cursor-pointer items-center justify-center text-nowrap rounded border px-4 py-3 font-manrope-medium text-sm text-base-content transition-all duration-300 ease-in-out hover:bg-base-200 focus:bg-base-200 active:scale-95 ${market.className}`}
+                    >
+                      {market.name}
+                    </p>
+                  ))}
+                </div>
+              </div>
+              {/* End Buttons */}
+
+              {/* Review */}
+              <div className="mt-6 flex flex-row items-center gap-x-5 lg:mt-10">
+                <HeroButton href={'#'} label={'Explore Markets'} />
+              </div>
+              {/* End Review */}
+            </div>
+            {/* End Col */}
+
+            <div className="lrelative ms-4 flex h-full w-full flex-row items-center justify-center">
+              <div className="h-[400px] w-1/2 min-w-full rounded-xl bg-base-300 p-4">
+                <DotLottieReact
+                  src="https://assets10.lottiefiles.com/packages/lf20_zw0djhar.json"
+                  width={'100%'}
+                  height={'100%'}
+                  autoplay
+                  loop
+                />
+              </div>
+            </div>
+            {/* End Col */}
+          </div>
+          {/* End Grid */}
+        </div>
+        {/* End Hero */}
+      </section>
+
       <section>
         <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
           {/* Grid */}
