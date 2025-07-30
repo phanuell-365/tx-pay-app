@@ -138,7 +138,7 @@ export default {
             transform: 'scale(1)',
           },
         },
-        floating: {
+        'tilt-right-in': {
           '0%': {
             transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(0px)',
           },
@@ -149,6 +149,17 @@ export default {
             transform: 'perspective(1000px) rotateY(-15deg) rotateX(5deg) translateY(0px)',
           },
         },
+        'tilt-left-in': {
+          '0%': {
+            transform: 'perspective(1000px) rotateY(15deg) rotateX(5deg) translateY(0px)',
+          },
+          '50%': {
+            transform: 'perspective(1000px) rotateY(15deg) rotateX(5deg) translateY(-10px)',
+          },
+          '100%': {
+            transform: 'perspective(1000px) rotateY(15deg) rotateX(5deg) translateY(0px)',
+          },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -159,7 +170,8 @@ export default {
         shutter: 'shutter 0.5s ease-in-out',
         capture: 'capture 0.15s ease-in-out',
         'scale-up-center': 'scale-up-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both',
-        floating: 'floating 6s ease-in-out infinite',
+        'floating-tilt-right-in': 'tilt-right-in 6s ease-in-out infinite',
+        'floating-tilt-left-in': 'tilt-left-in 6s ease-in-out infinite',
       },
       transitionDuration: {
         0: '0ms',

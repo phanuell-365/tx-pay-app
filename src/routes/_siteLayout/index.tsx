@@ -3,6 +3,13 @@ import { createFileRoute } from '@tanstack/react-router';
 import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { HeroButton } from '@/components/Button/HeroButton.tsx';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { Autoplay, EffectFade } from 'swiper/modules';
+import {
+  FeatureSlideItem,
+  type FeatureSlideItemProps,
+} from '@/components/Site/FeatureSlideItem.tsx';
 
 interface TradeMarket {
   name: string;
@@ -30,10 +37,73 @@ function RouteComponent() {
     { name: 'Stocks', className: 'border-indigo-600' },
   ];
 
+  const featureSlideItems: FeatureSlideItemProps[] = [
+    {
+      title: 'P2P Trading',
+      description:
+        'Trade directly with other users using our escrow-based peer-to-peer platform with multiple payment methods.',
+      image: (
+        <DotLottieReact
+          src="https://assets1.lottiefiles.com/packages/lf20_vybwn7df.json"
+          autoplay
+          loop
+        />
+      ),
+      link: 'Learn More',
+      linkUrl: '#',
+    },
+    // {
+    //   title: 'Agency Module',
+    //   description:
+    //     'Become an agent and facilitate cash deposits and withdrawals for users in your local area.',
+    //   image: (
+    //     <img
+    //       className="h-full w-full rounded-xl shadow-2xl transition-transform ease-in-out"
+    //       src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+    //       alt="Feature Image"
+    //     />
+    //   ),
+    //   link: 'Learn More',
+    //   linkUrl: '#',
+    // },
+    {
+      title: 'Affiliate Marketing',
+      description:
+        'Earn commissions by inviting others to join TradeX. Get rewarded for every active trader you bring to the platform.',
+      image: (
+        <DotLottieReact
+          src="https://assets1.lottiefiles.com/packages/lf20_5tkzkblw.json"
+          autoplay
+          loop
+        />
+      ),
+      link: 'Learn More',
+      linkUrl: '#',
+    },
+    {
+      title: 'Reports Center',
+      description:
+        'Comprehensive financial reporting and trade analysis tools to track your performance and maintain audit records.',
+      image: (
+        <DotLottieReact
+          src="https://assets1.lottiefiles.com/packages/lf20_obhph3sh.json"
+          autoplay
+          loop
+        />
+      ),
+      link: 'Learn More',
+      linkUrl: '#',
+    },
+  ];
+
+  // Initialize Swiper
+
+  // const comprehensiveTradingFeaturesSwiper = new Swiper();
+
   return (
     <>
       <section id={`advanced-trading-platform`}>
-        <div className="mx-auto max-w-[85rem] px-4 pb-6 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:px-8">
           {/* Grid */}
           <div className="grid lg:grid-cols-7 lg:items-center lg:gap-x-8 xl:gap-x-12">
             <div className="lg:col-span-3">
@@ -101,7 +171,7 @@ function RouteComponent() {
             <div className="mt-10 lg:col-span-4 lg:mt-0">
               <div className={'mx-auto w-full max-w-[500px]'}>
                 <img
-                  className="w-full animate-floating rounded-xl shadow-2xl transition-transform ease-in-out hover:scale-105"
+                  className="w-full animate-floating-tilt-right-in rounded-xl shadow-2xl transition-transform ease-in-out hover:scale-105"
                   src="/imgs/hero-1.jpeg"
                   alt="Hero Image"
                 />
@@ -115,7 +185,7 @@ function RouteComponent() {
 
       <section className="w-full" id={`awards-section`}>
         {/* Awards Section */}
-        <div className="mx-auto flex max-w-[85rem] flex-col items-center gap-x-8 py-6 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-[85rem] flex-col items-center gap-x-8 py-14 sm:px-6 lg:px-8">
           <div className="flex w-full flex-col items-center gap-y-8">
             <h2 className="mb-6 text-center font-manrope-bold text-2xl text-base-content">
               Our Awards
@@ -138,23 +208,23 @@ function RouteComponent() {
 
       <section id={`trade-multiple-markets`}>
         {/* Hero */}
-        <div className="mx-auto max-w-[85rem] px-4 py-6 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[85rem] px-4 py-6 lg:py-20 flex items-center justify-center sm:px-6 lg:px-8">
           {/* Grid */}
           <div className="grid gap-4 md:grid-cols-2 md:items-center md:gap-8 xl:gap-20">
             <div>
               <h1 className="block font-manrope-bold text-3xl text-base-content sm:text-4xl lg:text-6xl lg:leading-tight">
                 Trade Multiple Markets
               </h1>
-              <p className="mt-3 text-lg text-base-content">
+              <p className="mt-3 text-lg text-base-content/80">
                 Access a wide range of financial markets from a single platform. Trade forex,
                 cryptocurrencies, commodities, and synthetic assets with competitive spreads and
                 lightning-fast execution.
               </p>
 
               {/* Buttons */}
-              <div className="mt-7 grid w-full gap-3 sm:inline-flex">
+              <div className="mt-7 w-full gap-3 md:inline-flex">
                 {/* Trade Markets */}
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {tradeMarkets.map((market) => (
                     <p
                       key={market.name}
@@ -193,88 +263,48 @@ function RouteComponent() {
         {/* End Hero */}
       </section>
 
-      <section>
-        <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8">
+      <section id={`comprehensive-trading-features`}>
+        <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 py-6 lg:py-20 flex items-center justify-center">
           {/* Grid */}
           <div className="grid lg:grid-cols-7 lg:items-center lg:gap-x-8 xl:gap-x-12">
+            <div className="mt-10 lg:col-span-4 lg:mt-0">
+              <Swiper
+                modules={[Autoplay, EffectFade]}
+                effect={'fade'}
+                className="swiper"
+                autoplay={true}
+                loop={true}
+                spaceBetween={30}
+                slidesPerView={1}
+              >
+                {featureSlideItems.map(({ title, description, link, image, linkUrl }) => (
+                  <SwiperSlide key={title}>
+                    <FeatureSlideItem
+                      title={title}
+                      description={description}
+                      link={link}
+                      image={image}
+                      linkUrl={linkUrl}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+
             <div className="lg:col-span-3">
-              <h1 className="block font-manrope-bold text-2xl text-base-content/70 sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 className="block font-manrope-bold text-2xl text-base-content sm:text-4xl md:text-5xl lg:text-6xl">
                 Comprehensive Trading Features
               </h1>
 
               <div className="mt-5 flex flex-col items-center gap-2 sm:flex-row sm:gap-3 lg:mt-8">
-                <p className="text-base-content/70">
+                <p className="text-base-content/80">
                   Our platform offers everything you need for successful trading, from manual
                   execution to advanced automation and social features.
                 </p>
               </div>
 
-              <div className="mt-3 flex w-full gap-x-8">
-                <button
-                  className="flex w-full items-center gap-x-2 rounded-lg p-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100"
-                  type="button"
-                  aria-label="More options"
-                >
-                  View All Features
-                </button>
-              </div>
-            </div>
-
-            <div className="mt-10 lg:col-span-4 lg:mt-0">
-              <div className="feature-slide-image">
-                <p>P2P Trading</p>
-                <div>
-                  Trade directly with other users using our escrow-based peer-to-peer platform with
-                  multiple payment methods.
-                </div>
-                <a href="">Learn More</a>
-                <DotLottieReact
-                  src="https://assets1.lottiefiles.com/packages/lf20_vybwn7df.json"
-                  autoplay
-                  loop
-                />
-              </div>
-              <div className="feature-slide-image">
-                <p>Agency Module</p>
-                <div>
-                  Become an agent and facilitate cash deposits and withdrawals for users in your
-                  local area.
-                </div>
-                <a href="">Learn More</a>
-                <img
-                  className="w-full rounded-xl shadow-2xl transition-transform ease-in-out hover:scale-105"
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                  alt="Feature Image"
-                />
-              </div>
-              <div className="feature-slide-image">
-                <p>Affiliate Marketing</p>
-                <div>
-                  Earn commissions by inviting others to join TradeX. Get rewarded for every active
-                  trader you bring to the platform.
-                </div>
-                <a href="">
-                  Earn commissions by inviting others to join TradeX. Get rewarded for every active
-                  trader you bring to the platform.
-                </a>
-                <DotLottieReact
-                  src="https://assets1.lottiefiles.com/packages/lf20_5tkzkblw.json"
-                  autoplay
-                  loop
-                />
-              </div>
-              <div className="feature-slide-image">
-                <p>Reports Center</p>
-                <div>
-                  Comprehensive financial reporting and trade analysis tools to track your
-                  performance and maintain audit records.
-                </div>
-                <a href="">Learn More</a>
-                <DotLottieReact
-                  src="https://assets1.lottiefiles.com/packages/lf20_obhph3sh.json"
-                  autoplay
-                  loop
-                />
+              <div className="mt-3 flex w-full flex-row items-center gap-x-8">
+                <HeroButton href={'#'} label={'View All Features'} />
               </div>
             </div>
           </div>
