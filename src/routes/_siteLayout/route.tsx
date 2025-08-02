@@ -75,7 +75,7 @@ function RouteComponent() {
             <div className="ms-1 sm:ms-2"></div>
           </div>
 
-          <div className="ms-auto flex items-center gap-x-1 py-1 lg:order-3 lg:col-span-3 lg:gap-x-2 lg:ps-6">
+          <div className="ms-auto hidden md:flex items-center gap-x-1 py-1 lg:order-3 lg:col-span-3 xl:gap-x-2 xl:ps-6">
             <HeaderButton
               className="border border-primary text-primary hover:bg-primary hover:text-base-100 focus:bg-accent focus:text-base-100"
               label={'Log In'}
@@ -128,7 +128,7 @@ function RouteComponent() {
       </main>
 
       {/* ========== FOOTER ========== */}
-      <footer className="bg-base-300">
+      <footer className="bg-base-100">
         <div className={`mx-auto mt-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8`}>
           {/* Grid */}
           <div className="mb-10 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
@@ -141,23 +141,29 @@ function RouteComponent() {
                 >
                   Trade X
                 </a>
-                <p className="mt-3 text-xs text-gray-600 sm:text-sm">
+                <p className="mt-3 text-xs text-base-content/70 sm:text-sm">
                   The most advanced trading platform for synthetic assets, crypto, and forex
                   trading.
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-3">
-                <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                  <FontAwesomeIcon icon={['fab', 'cc-visa']} className="text-gray-500" />
+                <div className="text-[40px] text-base-content/50 hover:text-primary hover:scale-110 transition-transform duration-300 ease-in-out hover:cursor-pointer">
+                  <FontAwesomeIcon icon={['fab', 'cc-visa']} className="" />
                 </div>
-                <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                  <FontAwesomeIcon icon={['fab', 'cc-mastercard']} className="text-gray-500" />
+                <div className="text-[40px] text-base-content/50 hover:text-primary hover:scale-110 transition-transform duration-300 ease-in-out hover:cursor-pointer">
+                  <FontAwesomeIcon icon={['fab', 'cc-mastercard']} className="" />
                 </div>
-                <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                  <FontAwesomeIcon icon={['fab', 'bitcoin']} className="text-gray-500" />
+                <div className="text-[40px] text-base-content/50 hover:text-primary hover:scale-110 transition-transform duration-300 ease-in-out hover:cursor-pointer">
+                  <FontAwesomeIcon icon={['fab', 'bitcoin']} className="" />
                 </div>
-                <div className="rounded-sm bg-gray-100 p-2 hover:bg-gray-200 focus:bg-gray-200">
-                  <FontAwesomeIcon icon={['fas', 'university']} className="text-gray-500" />
+                <div className="text-[40px] text-base-content/50 hover:text-primary hover:scale-110 transition-transform duration-300 ease-in-out hover:cursor-pointer">
+                  <FontAwesomeIcon icon={['fas', 'university']} className="" />
+                </div>
+                <div className="text-[40px] text-base-content/50 hover:text-primary hover:scale-110 transition-transform duration-300 ease-in-out hover:cursor-pointer">
+                  <FontAwesomeIcon icon={['fab', 'paypal']} className="" />
+                </div>
+                <div className="text-[40px] text-base-content/50 hover:text-primary hover:scale-110 transition-transform duration-300 ease-in-out hover:cursor-pointer">
+                  <FontAwesomeIcon icon={['fab', 'stripe']} className="" />
                 </div>
               </div>
             </div>
@@ -313,10 +319,10 @@ function RouteComponent() {
           </div>
           {/* End Grid */}
 
-          <div className="mt-5 border-t border-gray-200 pt-5">
+          <div className="mt-5 border-t border-base-content pt-5 pb-20">
             <h5 className="text-md font-manrope-bold">Risk Warning</h5>
 
-            <p className="mt-2 grid grid-cols-1 gap-3 text-wrap break-words text-sm leading-6 text-gray-600 antialiased">
+            <p className="mt-2 grid grid-cols-1 gap-3 text-wrap break-words text-sm leading-6 text-base-content/80 antialiased">
               <span>
                 The Financial Products offered by the company include Contracts for Difference
                 ('CFDs') and other complex financial products. Trading CFDs carries a high level of

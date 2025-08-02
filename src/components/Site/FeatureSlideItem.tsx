@@ -30,12 +30,6 @@ export const FeatureSlideItem: React.FC<FeatureSlideItemProps> = ({
           >
             <span className="text-sm">{link}</span>
           </a>
-          {/*<a*/}
-          {/*  href={linkUrl}*/}
-          {/*  className="inline-flex items-center rounded bg-primary px-4 py-2 text-white transition-colors hover:bg-secondary"*/}
-          {/*>*/}
-          {/*  {link}*/}
-          {/*</a>*/}
         </div>
       </div>
     </div>

@@ -4,12 +4,14 @@ import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { HeroButton } from '@/components/Button/HeroButton.tsx';
 import { Swiper, SwiperSlide } from 'swiper/react';
+// @ts-expect-error This import is necessary for Swiper styles
 import 'swiper/css';
-import { Autoplay, EffectFade } from 'swiper/modules';
+import { Autoplay, EffectFade, FreeMode, Mousewheel } from 'swiper/modules';
 import {
   FeatureSlideItem,
   type FeatureSlideItemProps,
 } from '@/components/Site/FeatureSlideItem.tsx';
+import { PaymentMethod, type PaymentMethodProps } from '@/components/Site/PaymentMethod.tsx';
 
 interface TradeMarket {
   name: string;
@@ -52,20 +54,20 @@ function RouteComponent() {
       link: 'Learn More',
       linkUrl: '#',
     },
-    // {
-    //   title: 'Agency Module',
-    //   description:
-    //     'Become an agent and facilitate cash deposits and withdrawals for users in your local area.',
-    //   image: (
-    //     <img
-    //       className="h-full w-full rounded-xl shadow-2xl transition-transform ease-in-out"
-    //       src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-    //       alt="Feature Image"
-    //     />
-    //   ),
-    //   link: 'Learn More',
-    //   linkUrl: '#',
-    // },
+    {
+      title: 'Agency Module',
+      description:
+        'Become an agent and facilitate cash deposits and withdrawals for users in your local area.',
+      image: (
+        <img
+          className="h-full w-full rounded-xl shadow-2xl transition-transform ease-in-out"
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+          alt="Feature Image"
+        />
+      ),
+      link: 'Learn More',
+      linkUrl: '#',
+    },
     {
       title: 'Affiliate Marketing',
       description:
@@ -96,6 +98,44 @@ function RouteComponent() {
     },
   ];
 
+  const paymentMethods: PaymentMethodProps[] = [
+    {
+      name: 'PayPal',
+      icon: ['fab', 'paypal'],
+      className: 'text-blue-600',
+    },
+    {
+      name: 'MasterCard',
+      icon: ['fab', 'cc-mastercard'],
+      className: 'text-red-600',
+    },
+    {
+      name: 'Visa',
+      icon: ['fab', 'cc-visa'],
+      className: 'text-blue-800',
+    },
+    {
+      name: 'Bitcoin',
+      icon: ['fab', 'bitcoin'],
+      className: 'text-yellow-500',
+    },
+    {
+      name: 'Ethereum',
+      icon: ['fab', 'ethereum'],
+      className: 'text-purple-600',
+    },
+    {
+      name: 'Stripe',
+      icon: ['fab', 'stripe'],
+      className: 'text-blue-500',
+    },
+    {
+      name: 'Apple Pay',
+      icon: ['fab', 'apple-pay'],
+      className: 'text-black',
+    },
+  ];
+
   // Initialize Swiper
 
   // const comprehensiveTradingFeaturesSwiper = new Swiper();
@@ -103,72 +143,74 @@ function RouteComponent() {
   return (
     <>
       <section id={`advanced-trading-platform`}>
-        <div className="mx-auto max-w-[85rem] px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[85rem] px-4 pb-14 sm:px-6 md:py-14 lg:px-8">
           {/* Grid */}
-          <div className="grid lg:grid-cols-7 lg:items-center lg:gap-x-8 xl:gap-x-12">
-            <div className="lg:col-span-3">
-              <h1 className="block font-manrope-bold text-2xl text-base-content sm:text-4xl md:text-5xl lg:text-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 lg:items-center lg:gap-x-8 xl:gap-x-12">
+            <div className="grid grid-cols-1 gap-4 lg:col-span-6">
+              <h1 className="block text-wrap text-center font-manrope-bold text-4xl text-base-content sm:text-4xl md:text-5xl lg:text-start lg:text-6xl">
                 Advanced Trading Platform for Modern Traders
               </h1>
 
-              <div className="mt-5 flex flex-col items-center gap-2 sm:flex-row sm:gap-3 lg:mt-8">
-                <div className="w-full sm:w-auto">
-                  <label htmlFor="hero-input" className="sr-only">
-                    Search
-                  </label>
-                  <input
-                    type="text"
-                    id="input input-primary text-primary"
-                    name="hero-input"
-                    className="block w-full min-w-80 rounded-md border-gray-200 px-4 py-2.5 focus:border-blue-500 focus:ring-blue-500 disabled:pointer-events-none disabled:opacity-50 sm:py-3 sm:text-sm"
-                    placeholder="Enter work email"
-                  />
-                </div>
-                <a
-                  className="focus:outline-hidden inline-flex w-full items-center justify-center gap-x-2 rounded-lg border border-transparent bg-blue-600 px-4 py-3 text-sm font-medium text-white hover:bg-blue-700 focus:bg-blue-700 disabled:pointer-events-none disabled:opacity-50 sm:w-auto"
-                  href="#"
-                >
-                  Sign Up
-                </a>
-              </div>
-
-              {/* Brands */}
-              <div className="mt-3">
-                <span className="font-manrope-medium text-xs text-base-content/60">
-                  Or sign up with
-                </span>
-
-                <div className="mt-4 flex gap-x-8">
-                  <button
-                    className="focus:outline-hidden flex items-center gap-x-2 rounded-lg p-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100"
-                    type="button"
-                    aria-label="Google"
+              <div className="lg:mx-r mx-auto grid grid-cols-1 gap-4 lg:ml-0">
+                <div className="mt-5 flex flex-row items-center gap-x-2 sm:gap-x-6 lg:mt-8">
+                  <div className="">
+                    <label htmlFor="hero-input" className="sr-only">
+                      Search
+                    </label>
+                    <input
+                      type="text"
+                      id="hero-input"
+                      name="hero-input"
+                      className="input input-primary !rounded text-primary"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                  <a
+                    className="inline-flex h-12 items-center rounded bg-primary px-4 py-2 font-manrope-semi-bold text-base text-base-100 transition-all duration-300 ease-in-out hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 active:scale-95 md:text-lg"
+                    href="#"
                   >
-                    <FontAwesomeIcon icon={['fab', 'google']} className="h-5 w-5 text-gray-600" />
-                  </button>
+                    Sign Up
+                  </a>
+                </div>
+
+                {/* Brands */}
+                <div className="mt-3">
+                  <span className="font-manrope-medium text-xs text-base-content/60">
+                    Or sign up with
+                  </span>
+
+                  <div className="mt-4 flex gap-x-8">
+                    <button
+                      className="focus:outline-hidden flex items-center gap-x-2 rounded-lg p-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100"
+                      type="button"
+                      aria-label="Google"
+                    >
+                      <FontAwesomeIcon icon={['fab', 'google']} className="h-5 w-5 text-gray-600" />
+                    </button>
+                    <button
+                      className="focus:outline-hidden flex items-center gap-x-2 rounded-lg p-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100"
+                      type="button"
+                      aria-label="Apple"
+                    >
+                      <FontAwesomeIcon icon={['fab', 'apple']} className="h-5 w-5 text-gray-600" />
+                    </button>
+                  </div>
+                </div>
+                <div className="mt-3 flex w-full gap-x-8">
                   <button
-                    className="focus:outline-hidden flex items-center gap-x-2 rounded-lg p-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100"
+                    className="hover:bg-secondary-focus w-full rounded-full bg-secondary px-6 py-4 font-manrope-semi-bold text-lg text-base-100 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 active:scale-95"
                     type="button"
-                    aria-label="Apple"
+                    aria-label="More options"
                   >
-                    <FontAwesomeIcon icon={['fab', 'apple']} className="h-5 w-5 text-gray-600" />
+                    Try Demo Account
                   </button>
                 </div>
-              </div>
-              <div className="mt-3 flex w-full gap-x-8">
-                <button
-                  className="flex w-full items-center gap-x-2 rounded-lg p-2 text-sm text-gray-800 hover:bg-gray-100 focus:bg-gray-100"
-                  type="button"
-                  aria-label="More options"
-                >
-                  Try Demo Account
-                </button>
               </div>
               {/* End Brands */}
             </div>
             {/* End Col */}
 
-            <div className="mt-10 lg:col-span-4 lg:mt-0">
+            <div className="mt-10 lg:col-span-6 lg:mt-0">
               <div className={'mx-auto w-full max-w-[500px]'}>
                 <img
                   className="w-full animate-floating-tilt-right-in rounded-xl shadow-2xl transition-transform ease-in-out hover:scale-105"
@@ -208,7 +250,7 @@ function RouteComponent() {
 
       <section id={`trade-multiple-markets`}>
         {/* Hero */}
-        <div className="mx-auto max-w-[85rem] px-4 py-6 lg:py-20 flex items-center justify-center sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-[85rem] items-center justify-center px-4 py-6 sm:px-6 lg:px-8 lg:py-20">
           {/* Grid */}
           <div className="grid gap-4 md:grid-cols-2 md:items-center md:gap-8 xl:gap-20">
             <div>
@@ -264,34 +306,38 @@ function RouteComponent() {
       </section>
 
       <section id={`comprehensive-trading-features`}>
-        <div className="mx-auto max-w-[85rem] px-4 sm:px-6 lg:px-8 py-6 lg:py-20 flex items-center justify-center">
+        <div className="mx-auto flex w-full items-center justify-center px-4 py-6 sm:px-6 lg:px-8 lg:py-20">
           {/* Grid */}
-          <div className="grid lg:grid-cols-7 lg:items-center lg:gap-x-8 xl:gap-x-12">
-            <div className="mt-10 lg:col-span-4 lg:mt-0">
-              <Swiper
-                modules={[Autoplay, EffectFade]}
-                effect={'fade'}
-                className="swiper"
-                autoplay={true}
-                loop={true}
-                spaceBetween={30}
-                slidesPerView={1}
-              >
-                {featureSlideItems.map(({ title, description, link, image, linkUrl }) => (
-                  <SwiperSlide key={title}>
-                    <FeatureSlideItem
-                      title={title}
-                      description={description}
-                      link={link}
-                      image={image}
-                      linkUrl={linkUrl}
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+          <div className="grid lg:grid-cols-12 lg:items-center lg:gap-x-8 xl:gap-x-12">
+            <div className="mt-10 lg:col-span-6 lg:mt-0">
+              <div className="mx-auto flex w-full items-center justify-center px-4 py-6 sm:px-6 lg:px-8 lg:py-20">
+                <Swiper
+                  modules={[Autoplay, EffectFade]}
+                  effect={'fade'}
+                  autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                  }}
+                  loop={true}
+                  spaceBetween={3}
+                  slidesPerView={1}
+                >
+                  {featureSlideItems.map(({ title, description, link, image, linkUrl }) => (
+                    <SwiperSlide key={title}>
+                      <FeatureSlideItem
+                        title={title}
+                        description={description}
+                        link={link}
+                        image={image}
+                        linkUrl={linkUrl}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
             </div>
 
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-6 lg:mt-0">
               <h1 className="block font-manrope-bold text-2xl text-base-content sm:text-4xl md:text-5xl lg:text-6xl">
                 Comprehensive Trading Features
               </h1>
@@ -306,6 +352,68 @@ function RouteComponent() {
               <div className="mt-3 flex w-full flex-row items-center gap-x-8">
                 <HeroButton href={'#'} label={'View All Features'} />
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id={`trade-with-confidence`}>
+        <div className="rounded-t-[3rem] bg-gradient-to-b from-base-300 to-transparent pt-16 md:mx-auto md:rounded-t-[5rem] md:pt-28 lg:pt-32 2xl:px-36">
+          <div className="mx-auto md:px-8 xl:max-w-7xl">
+            <div className="mx-auto mb-28 flex max-w-5xl flex-col items-center justify-center gap-y-8">
+              <h1 className="block text-center font-manrope-extra-bold text-3xl text-base-content sm:text-4xl md:mb-12 md:font-manrope-bold md:text-5xl lg:text-6xl">
+                <span className={``}>Supported Payment Methods</span>
+                <span className={`ml-3 mt-6 md:block`}>
+                  in
+                  <span className="ml-3 mt-1 inline-block rounded-2xl border-4 border-primary bg-base-100 px-4 py-1 font-manrope-bold text-primary shadow-2xl shadow-primary md:rounded-3xl">
+                    TradeX
+                  </span>
+                </span>
+              </h1>
+              <p className="mt-3 text-center text-sm text-base-content/80 md:text-base">
+                TradeX supports a wide range of payment methods to ensure you can deposit and
+                withdraw funds with ease. Whether you prefer bank transfers, credit cards, or
+                cryptocurrencies, we have you covered.
+              </p>
+            </div>
+
+            <div className="relative mx-auto mt-10 h-64">
+              <Swiper
+                modules={[Autoplay, Mousewheel, FreeMode]}
+                autoplay={true}
+                loop={true}
+                spaceBetween={30}
+                slidesPerView={2}
+                mousewheel={true}
+                freeMode={true}
+                breakpoints={{
+                  320: {
+                    slidesPerView: 1,
+                  },
+                  640: {
+                    slidesPerView: 2,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                  },
+                  1024: {
+                    slidesPerView: 4,
+                  },
+                  1280: {
+                    slidesPerView: 5,
+                  },
+                }}
+              >
+                {paymentMethods.map((method) => (
+                  <SwiperSlide key={method.name}>
+                    <PaymentMethod
+                      name={method.name}
+                      icon={method.icon}
+                      className={method.className}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
           </div>
         </div>

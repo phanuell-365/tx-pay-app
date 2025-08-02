@@ -13,16 +13,16 @@ export interface FooterColumnProps {
 export const FooterColumn: React.FC<FooterColumnProps> = ({ title, items }) => {
   return (
     <div>
-      <h4 className="font-manrope-semi-bold text-sm text-base-content">{title}</h4>
+      <h4 className="font-manrope-bold text-lg text-base-content">{title}</h4>
 
-      <div className="mt-3 grid space-y-3 text-sm">
+      <div className="mt-3 grid space-y-3 text-base">
 
         {
           items && items.length > 0 ? (
             items.map((item) => (
-              <p key={item.title} className="text-gray-500">
+              <p key={item.title} className="text-base-content/90">
                 <a
-                  className="focus:outline-hidden inline-flex gap-x-2 text-gray-600 hover:text-primary focus:text-primary"
+                  className="focus:outline-hidden inline-flex gap-x-2 text-base-content/80 hover:text-primary focus:text-primary"
                   href={item.href}
                 >
                   {item.title}
