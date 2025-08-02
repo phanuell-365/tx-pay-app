@@ -25,7 +25,7 @@ export const MenuButton: React.FC<MenuButtonProps> = ({ onHover, title, more}) =
 
   const onMouseOver = () => {
     setOpen(true);
-    console.debug('onMouseOver called, setting open to true');
+    // console.debug('onMouseOver called, setting open to true');
     if (onHover) {
       onHover(true);
     }
@@ -33,7 +33,7 @@ export const MenuButton: React.FC<MenuButtonProps> = ({ onHover, title, more}) =
 
   const onMouseLeave = () => {
     setOpen(false);
-    console.debug('onMouseLeave called, setting open to false');
+    // console.debug('onMouseLeave called, setting open to false');
     if (onHover) {
       onHover(false);
 

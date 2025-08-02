@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import MenuButton from '@/components/MegaMenu/MenuButton.tsx';
-import { Popover, PopoverButton, PopoverPanel, useClose } from '@headlessui/react';
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { MenuPanel } from '@/components/MegaMenu/MenuPanel.tsx';
 
 export interface MenuItemProps {
@@ -18,10 +18,10 @@ export const MenuItem: React.FC<MenuItemProps> = ({ title, more, children }) => 
 
   const handleHover = (value: boolean) => {
     if (value) {
-      console.debug('hover');
-      console.debug('popOverButton', popOverButton.current);
+      // console.debug('hover');
+      // console.debug('popOverButton', popOverButton.current);
       if (popOverButton.current) {
-        console.debug('popOverButton', popOverButton.current);
+        // console.debug('popOverButton', popOverButton.current);
         // popOverButton.current.click();
         setIsOpen(true);
       }

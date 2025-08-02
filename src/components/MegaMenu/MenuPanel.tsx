@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const MenuPanel: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
+export const MenuPanel: React.FC<{ children?: React.ReactNode }> = () => {
   return (
     <>
       <div className="grid bg-base-100 shadow-lg">
