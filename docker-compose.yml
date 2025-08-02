@@ -6,7 +6,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
     ports:
       - '80:80'
     environment:
       - NODE_ENV=production
+    command: sh -c "npm run dev"
+    stdin_open: true
+    tty: true
