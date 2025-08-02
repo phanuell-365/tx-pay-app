@@ -39,4 +39,7 @@ export default defineConfig({
   css: {
     postcss: './postcss.config.js',
   },
+  define: {
+    'crypto.hash': 'crypto.createHash'
+  }
 });
